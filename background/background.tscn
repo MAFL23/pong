@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpt2t7nj2b1fj"]
+
+[ext_resource type="Texture2D" uid="uid://bugixanme0ld8" path="res://background/background.png" id="1_p8qmt"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eva80"]
+texture = ExtResource("1_p8qmt")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+2:2/0 = 0
+1:2/0 = 0
+0:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_r0sni"]
+sources/0 = SubResource("TileSetAtlasSource_eva80")
+
+[node name="Background" type="TileMapLayer"]
+tile_set = SubResource("TileSet_r0sni")
