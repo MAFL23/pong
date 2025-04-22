@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfng3w7bauw7k"]
+
+[ext_resource type="Texture2D" uid="uid://cbnxvv78qs12v" path="res://Walls/bricks.png" id="1_6e75p"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qdlci"]
+texture = ExtResource("1_6e75p")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_rqeey"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 6
+sources/0 = SubResource("TileSetAtlasSource_qdlci")
+
+[node name="Walls" type="TileMapLayer"]
+tile_set = SubResource("TileSet_rqeey")
