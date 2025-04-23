@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var player_1: Player = $Player_1
 @onready var player_2: Player = $Player_2
+@onready var ai: Node = $Ai
 @onready var ball: CharacterBody2D = $Ball
 @onready var arena: Arena = $Arena
 @onready var score_ui: ScoreUI = $ScoreUI
@@ -15,7 +16,9 @@ var game_just_opened := true
 func _ready() -> void:
 	arena.score_changed.connect(_on_arena_score_changed)
 	arena.score_changed.connect(score_ui.score_changed)
-	
+	player_1.set_physics_process(false)
+	player_2.set_physics_process(false)
+	ai.set_physics_process(false)
 	ball.direction = Vector2.ZERO
 	#start_game()
 	pause_game()
@@ -26,6 +29,9 @@ func start_game(ai_oponent := false)->void:
 	paddle.global_position = Vector2(64, 256)
 	paddle_2.global_position = Vector2(832, 256)
 	ball.global_position = Vector2(448, 256)
+	player_1.set_physics_process(true)
+	player_2.set_physics_process(!ai_oponent)
+	ai.set_physics_process(ai_oponent)
 	ball.start_moving()
 	
 

@@ -31,4 +31,3 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	paddle.direction = Input.get_axis(up, down)
-	

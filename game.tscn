@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bp057xcbcq4bq"]
+[gd_scene load_steps=9 format=3 uid="uid://bp057xcbcq4bq"]
 
 [ext_resource type="Script" uid="uid://p1n5jgwfpc1w" path="res://game.gd" id="1_7jktm"]
 [ext_resource type="PackedScene" uid="uid://wbfhqporlwm7" path="res://player/player.tscn" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://k2bjap6td1oq" path="res://arena/arena.tscn" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://d28ny614fal3m" path="res://paddle/paddle.tscn" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://b6dsfoohn58nq" path="res://ball/ball.tscn" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://cdreyo160yaxk" path="res://ai/ai.tscn" id="3_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://duvog5se0dysv" path="res://UI/score_ui.tscn" id="6_ryrav"]
 [ext_resource type="PackedScene" uid="uid://d2krwelj03ox8" path="res://UI/pause_menu.tscn" id="7_eow3j"]
 
@@ -18,6 +19,10 @@ paddle_path = NodePath("../Paddle")
 [node name="Player_2" parent="." instance=ExtResource("1_fc0e3")]
 player = 1
 paddle_path = NodePath("../Paddle2")
+
+[node name="Ai" parent="." node_paths=PackedStringArray("paddle", "ball") instance=ExtResource("3_j5wjh")]
+paddle = NodePath("../Paddle2")
+ball = NodePath("../Ball")
 
 [node name="Arena" parent="." instance=ExtResource("1_feb5d")]
 
