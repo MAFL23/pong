@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bp057xcbcq4bq"]
+[gd_scene load_steps=8 format=3 uid="uid://bp057xcbcq4bq"]
 
 [ext_resource type="Script" uid="uid://p1n5jgwfpc1w" path="res://game.gd" id="1_7jktm"]
 [ext_resource type="PackedScene" uid="uid://wbfhqporlwm7" path="res://player/player.tscn" id="1_fc0e3"]
@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://d28ny614fal3m" path="res://paddle/paddle.tscn" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://b6dsfoohn58nq" path="res://ball/ball.tscn" id="3_feb5d"]
 [ext_resource type="PackedScene" uid="uid://duvog5se0dysv" path="res://UI/score_ui.tscn" id="6_ryrav"]
+[ext_resource type="PackedScene" uid="uid://d2krwelj03ox8" path="res://UI/pause_menu.tscn" id="7_eow3j"]
 
 [node name="Game" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_7jktm")
 
 [node name="Player_1" parent="." instance=ExtResource("1_fc0e3")]
@@ -17,8 +19,7 @@ paddle_path = NodePath("../Paddle")
 player = 1
 paddle_path = NodePath("../Paddle2")
 
-[node name="Arena" parent="." node_paths=PackedStringArray("controller") instance=ExtResource("1_feb5d")]
-controller = NodePath("../ScoreUI")
+[node name="Arena" parent="." instance=ExtResource("1_feb5d")]
 
 [node name="Paddle" parent="." instance=ExtResource("2_e2o6t")]
 position = Vector2(64, 256)
@@ -31,3 +32,11 @@ flip_sprite = true
 position = Vector2(448, 256)
 
 [node name="ScoreUI" parent="." instance=ExtResource("6_ryrav")]
+
+[node name="initial_position" type="Marker2D" parent="."]
+position = Vector2(448, 256)
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_eow3j")]
+
+[connection signal="two_players_pressed" from="PauseMenu" to="." method="_on_pause_menu_two_players_pressed"]
+[connection signal="vs_ai_pressed" from="PauseMenu" to="." method="_on_pause_menu_vs_ai_pressed"]

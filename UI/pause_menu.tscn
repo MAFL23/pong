@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2krwelj03ox8"]
+
+[ext_resource type="Script" uid="uid://df8uj4ogsde0c" path="res://UI/pause_menu.gd" id="1_ltd3m"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ltd3m")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+offset_left = -16.0
+offset_right = 928.0
+offset_bottom = 512.0
+color = Color(0.145098, 0.145098, 0.145098, 0.392157)
+
+[node name="2PlayersButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 224.0
+offset_right = 408.0
+offset_bottom = 296.0
+text = "2 PLAYERS"
+
+[node name="vsAIButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 224.0
+offset_right = 705.0
+offset_bottom = 296.0
+text = "VS AI"
+
+[connection signal="pressed" from="2PlayersButton" to="." method="_on_players_button_pressed"]
+[connection signal="pressed" from="vsAIButton" to="." method="_on_vs_ai_button_pressed"]

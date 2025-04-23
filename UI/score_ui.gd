@@ -1,4 +1,4 @@
-extends Control
+class_name ScoreUI extends Control
 @onready var score_player_1: Label = $ScorePlayer1
 @onready var score_player_2: Label = $ScorePlayer2
 

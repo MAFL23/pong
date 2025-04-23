@@ -7,6 +7,7 @@ font_size = 36
 font_color = Color(0, 0, 0, 1)
 
 [node name="ScoreUI" type="Control"]
+process_mode = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,21 +18,21 @@ script = ExtResource("1_pcny6")
 
 [node name="ScorePlayer1" type="Label" parent="."]
 layout_mode = 0
+offset_left = 16.0
 offset_top = 40.0
-offset_right = 40.0
+offset_right = 56.0
 offset_bottom = 90.0
 text = "0"
 label_settings = SubResource("LabelSettings_7jktm")
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ScorePlayer2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 856.0
+offset_left = 840.0
 offset_top = 40.0
-offset_right = 896.0
+offset_right = 880.0
 offset_bottom = 90.0
 text = "0"
 label_settings = SubResource("LabelSettings_7jktm")
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1

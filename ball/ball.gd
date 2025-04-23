@@ -5,7 +5,7 @@ class_name Ball extends CharacterBody2D
 var direction : Vector2
 
 func _ready() -> void:
-	direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
+	start_moving()
 
 func _physics_process(delta: float) -> void:
 	velocity = SPEED * direction
@@ -13,3 +13,12 @@ func _physics_process(delta: float) -> void:
 	
 	if is_on_wall():
 		direction = direction.bounce(get_wall_normal())
+
+func start_moving()->void:
+	direction = Vector2.ZERO
+	get_tree().create_timer(2).timeout.connect(func ()->void:
+		randomize_direction()
+	)
+
+func randomize_direction()->void:
+	direction = Vector2.RIGHT.rotated(randf_range(-PI/6, PI/6)) * [-1,1].pick_random()
