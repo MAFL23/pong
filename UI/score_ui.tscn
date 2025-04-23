@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://duvog5se0dysv"]
+
+[ext_resource type="Script" uid="uid://c83wvwh0givkh" path="res://UI/score_ui.gd" id="1_pcny6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7jktm"]
+font_size = 36
+font_color = Color(0, 0, 0, 1)
+
+[node name="ScoreUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pcny6")
+
+[node name="ScorePlayer1" type="Label" parent="."]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 40.0
+offset_bottom = 90.0
+text = "0"
+label_settings = SubResource("LabelSettings_7jktm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScorePlayer2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 40.0
+offset_right = 896.0
+offset_bottom = 90.0
+text = "0"
+label_settings = SubResource("LabelSettings_7jktm")
+horizontal_alignment = 1
+vertical_alignment = 1
