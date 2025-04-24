@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bp057xcbcq4bq"]
+[gd_scene load_steps=10 format=3 uid="uid://bp057xcbcq4bq"]
 
 [ext_resource type="Script" uid="uid://p1n5jgwfpc1w" path="res://game.gd" id="1_7jktm"]
 [ext_resource type="PackedScene" uid="uid://wbfhqporlwm7" path="res://player/player.tscn" id="1_fc0e3"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cdreyo160yaxk" path="res://ai/ai.tscn" id="3_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://duvog5se0dysv" path="res://UI/score_ui.tscn" id="6_ryrav"]
 [ext_resource type="PackedScene" uid="uid://d2krwelj03ox8" path="res://UI/pause_menu.tscn" id="7_eow3j"]
+[ext_resource type="AudioStream" uid="uid://cpp3ty8f4vise" path="res://back_music.wav" id="9_vef74"]
 
 [node name="Game" type="Node2D"]
 process_mode = 3
@@ -42,6 +43,11 @@ position = Vector2(448, 256)
 position = Vector2(448, 256)
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_eow3j")]
+
+[node name="BackMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_vef74")
+volume_db = -13.0
+autoplay = true
 
 [connection signal="two_players_pressed" from="PauseMenu" to="." method="_on_pause_menu_two_players_pressed"]
 [connection signal="vs_ai_pressed" from="PauseMenu" to="." method="_on_pause_menu_vs_ai_pressed"]

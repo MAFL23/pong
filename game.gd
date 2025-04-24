@@ -20,10 +20,10 @@ func _ready() -> void:
 	player_2.set_physics_process(false)
 	ai.set_physics_process(false)
 	ball.direction = Vector2.ZERO
-	#start_game()
 	pause_game()
 	
 func start_game(ai_oponent := false)->void:
+	arena.reset_scores()
 	score_ui.score_changed(1,0)
 	score_ui.score_changed(2,0)
 	paddle.global_position = Vector2(64, 256)
@@ -32,7 +32,7 @@ func start_game(ai_oponent := false)->void:
 	player_1.set_physics_process(true)
 	player_2.set_physics_process(!ai_oponent)
 	ai.set_physics_process(ai_oponent)
-	ball.start_moving()
+	#ball.start_moving()
 	
 
 func _on_arena_score_changed(_player:int, _score:int)->void:

@@ -11,7 +11,11 @@ extends Node
 
 func _on_timer_timeout() -> void:
 	var difference = ball.global_position.y - paddle.global_position.y
-	if ball.velocity.x > 0 and  abs(difference) > 32:
+	if ball.velocity.x > 0 and  abs(difference) > 28:
 		paddle.direction = signf(difference)
 	else:
-		paddle.direction = 0
+		var dif_from_center = 256.0 - paddle.global_position.y
+		if abs(dif_from_center) > 40 and ball.velocity.x <= 0:
+			paddle.direction = signf(dif_from_center)
+		else:
+			paddle.direction = 0

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://k2bjap6td1oq"]
+[gd_scene load_steps=6 format=4 uid="uid://k2bjap6td1oq"]
 
 [ext_resource type="Script" uid="uid://njru6d5sqnft" path="res://arena/arena.gd" id="1_0gwdx"]
 [ext_resource type="PackedScene" uid="uid://bfng3w7bauw7k" path="res://Walls/walls.tscn" id="1_dkqtx"]
 [ext_resource type="PackedScene" uid="uid://bpt2t7nj2b1fj" path="res://background/background.tscn" id="1_u13ga"]
 [ext_resource type="PackedScene" uid="uid://bcva3gfnwann8" path="res://GoalArea/GoalArea.tscn" id="3_dotur"]
+[ext_resource type="AudioStream" uid="uid://deqt2xxn3e1xv" path="res://arena/score.wav" id="5_44uaw"]
 
 [node name="Arena" type="Node2D"]
 process_mode = 1
@@ -21,6 +22,9 @@ point_to = 2
 
 [node name="GoalArea2" parent="." instance=ExtResource("3_dotur")]
 position = Vector2(886, 256)
+
+[node name="Score" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_44uaw")
 
 [connection signal="goal" from="GoalArea" to="." method="_on_goal_area_goal"]
 [connection signal="goal" from="GoalArea2" to="." method="_on_goal_area_goal"]

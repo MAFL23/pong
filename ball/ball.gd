@@ -1,6 +1,7 @@
 class_name Ball extends CharacterBody2D
 
 @export var SPEED := 400
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var direction : Vector2
 
@@ -13,6 +14,7 @@ func _physics_process(delta: float) -> void:
 	
 	if is_on_wall():
 		direction = direction.bounce(get_wall_normal())
+		audio_stream_player.play()
 
 func start_moving()->void:
 	direction = Vector2.ZERO
