@@ -28,15 +28,15 @@ func start_game(ai_oponent := false)->void:
 	score_ui.score_changed(2,0)
 	paddle.global_position = Vector2(64, 256)
 	paddle_2.global_position = Vector2(832, 256)
-	ball.global_position = Vector2(448, 256)
+	ball.reset()
 	player_1.set_physics_process(true)
 	player_2.set_physics_process(!ai_oponent)
 	ai.set_physics_process(ai_oponent)
-	#ball.start_moving()
+	ball.start_moving()
 	
 
 func _on_arena_score_changed(_player:int, _score:int)->void:
-	ball.global_position = Vector2(448, 256)
+	ball.reset()
 	ball.start_moving()
 
 func _unhandled_input(event: InputEvent) -> void:

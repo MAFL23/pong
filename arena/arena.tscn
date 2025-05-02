@@ -25,6 +25,7 @@ position = Vector2(886, 256)
 
 [node name="Score" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_44uaw")
+volume_db = -9.0
 
 [connection signal="goal" from="GoalArea" to="." method="_on_goal_area_goal"]
 [connection signal="goal" from="GoalArea2" to="." method="_on_goal_area_goal"]
